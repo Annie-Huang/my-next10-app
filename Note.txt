@@ -7,3 +7,9 @@ Need to install the following packages:
   create-next-app
 Ok to proceed? (y) y
 Creating a new Next.js app in /Users/ahuang23/projects/my-next10-app.
+
+ahuang23@CMC02FC0ZCML85 projects % npm i -g testcafe
+ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe chrome tests
+
+
+
