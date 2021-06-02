@@ -3,8 +3,11 @@ https://github.com/vercel/next.js
 https://github.com/vercel/next.js/tree/canary/examples/with-typescript-styled-components
 https://github.com/leerob/mastering-nextjs/tree/master/course/styling/04-styled-components
 https://github.com/vercel/next.js/tree/master/examples/with-styled-components
+https://github.com/vercel/next.js/tree/master/examples/with-typescript
+https://github.com/vercel/next.js/tree/master/examples/with-typescript-styled-components
+https://github.com/vercel/next.js/tree/master/examples/with-typescript-eslint-jest
 
-------------------------------------------------------------------------
+=============================================================================================
 
 ahuang23@CMC02FC0ZCML85 projects % npx create-next-app my-next10-app --typescript
 Need to install the following packages:
@@ -13,12 +16,12 @@ Ok to proceed? (y) y
 Creating a new Next.js app in /Users/ahuang23/projects/my-next10-app.
 
 TestCafe:
-----------
+=================
 ahuang23@CMC02FC0ZCML85 projects % npm i -g testcafe
 ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe chrome tests
 
 Styled-component:
---------------------
+==========================
 npx create-next-app --example with-typescript-styled-components with-typescript-styled-components-app
 ahuang23@CMC02FC0ZCML85 my-next10-app % npm install styled-components
 ahuang23@CMC02FC0ZCML85 my-next10-app % npm i --save-dev @types/styled-components
@@ -32,3 +35,90 @@ doesn't seem to make a different, still output as:
 When wrapping a Link from next/link within a styled-component, the as prop provided by styled will collide with the
 Link's as prop and cause styled-components to throw an Invalid tag error. To avoid this, you can either use the
 recommended forwardedAs prop from styled-components or use a different named prop to pass to a styled Link.
+
+
+Typescript:
+===================
+https://github.com/vercel/next.js/blob/master/examples/with-typescript/pages/users/%5Bid%5D.tsx
+https://github.com/vercel/next.js/blob/master/examples/with-typescript/pages/api/users/index.ts
+
+type Props = {
+  item?: User
+  errors?: string
+}
+const StaticPropsDetail = ({ item, errors }: Props) => {..}
+
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  try {
+    ...
+  }
+}
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  // Get the paths we want to pre-render based on users
+  const paths = sampleUserData.map((user) => ({
+    params: { id: user.id.toString() },
+  }))
+
+  // We'll pre-render only these paths at build time.
+  // { fallback: false } means other routes should 404.
+  return { paths, fallback: false }
+}
+
+const handler = (_req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    if (!Array.isArray(sampleUserData)) {
+      throw new Error('Cannot find user data')
+    }
+
+    res.status(200).json(sampleUserData)
+  } catch (err) {
+    res.status(500).json({ statusCode: 500, message: err.message })
+  }
+}
+
+prettier
+=================
+.prettierrc
+----------------
+{
+  "semi": false,
+  "singleQuote": true
+}
+.prettierignore
+------------------
+node_modules
+.next
+yarn.lock
+package-lock.json
+public
+
+jest
+===============
+jest.config.js
+module.exports = {
+  roots: ['<rootDir>'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'json', 'jsx'],
+  testPathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|.next)[/\\\\]'],
+  transformIgnorePatterns: ['[/\\\\]node_modules[/\\\\].+\\.(ts|tsx)$'],
+  transform: {
+    '^.+\\.(ts|tsx)$': 'babel-jest',
+  },
+  watchPlugins: [
+    'jest-watch-typeahead/filename',
+    'jest-watch-typeahead/testname',
+  ],
+  moduleNameMapper: {
+    '\\.(css|less|sass|scss)$': 'identity-obj-proxy',
+    '\\.(gif|ttf|eot|svg|png)$': '<rootDir>/test/__mocks__/fileMock.js',
+  },
+}
+
+eslint
+=============
+https://github.com/vercel/next.js/blob/master/examples/with-typescript-eslint-jest/.eslintrc.json
+https://github.com/vercel/next.js/blob/master/examples/with-typescript-eslint-jest/.eslintignore
+
+husky
+==========
+https://github.com/vercel/next.js/blob/master/examples/with-typescript-eslint-jest/package.json
