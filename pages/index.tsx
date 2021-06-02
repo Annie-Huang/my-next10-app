@@ -3,10 +3,15 @@ import Image from 'next/image';
 import styles from '../styles/Home.module.css';
 import styled from 'styled-components';
 import Dropdown from '../components/dropdown';
+import StyledLink from '../components/StyledLink';
 
 export default function Home() {
   return (
     <>
+      {/*<StyledLink href="/post/[pid]" forwardedAs="/post/abc">*/}
+      <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
+        First post
+      </StyledLink>
       <Title>My page test</Title>
       <Dropdown />
     </>

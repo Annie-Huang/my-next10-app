@@ -2,6 +2,7 @@ https://nextjs.org/docs/basic-features/built-in-css-support#css-in-js
 https://github.com/vercel/next.js
 https://github.com/vercel/next.js/tree/canary/examples/with-typescript-styled-components
 https://github.com/leerob/mastering-nextjs/tree/master/course/styling/04-styled-components
+https://github.com/vercel/next.js/tree/master/examples/with-styled-components
 
 ------------------------------------------------------------------------
 
@@ -28,3 +29,6 @@ ahuang23@CMC02FC0ZCML85 my-next10-app % npm install babel-plugin-styled-componen
 doesn't seem to make a different, still output as:
   <h1 class="pages__Title-rs8gre-0 cVtDEB">My page test</h1>
 
+When wrapping a Link from next/link within a styled-component, the as prop provided by styled will collide with the
+Link's as prop and cause styled-components to throw an Invalid tag error. To avoid this, you can either use the
+recommended forwardedAs prop from styled-components or use a different named prop to pass to a styled Link.
