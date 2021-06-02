@@ -1,11 +1,11 @@
 import React from 'react';
+import { useRouter } from 'next/router';
 
 const Post = () => {
-  return (
-    <div>
-      Post Item:
-    </div>
-  );
+  const router = useRouter();
+  console.log(router.query);
+
+  return <div>Post Item: {router.query.pid}</div>;
 };
 
 export default Post;

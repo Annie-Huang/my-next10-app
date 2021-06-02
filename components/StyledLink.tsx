@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import styled from 'styled-components'
+import Link from 'next/link';
+import styled from 'styled-components';
 import React from 'react';
 
 export interface StyledLinkProps {
@@ -9,15 +9,21 @@ export interface StyledLinkProps {
   href: string;
 }
 
-const StyledLink: React.FC<StyledLinkProps> = ({as, children, className, href }) => (
+const StyledLink: React.FC<StyledLinkProps> = ({
+  as,
+  children,
+  className,
+  href,
+}) => (
   <Link href={href} as={as} passHref>
     <a className={className}>{children}</a>
   </Link>
-)
+);
 
 export default styled(StyledLink)`
+  font-size: 30px;
   color: #0075e0;
-  text-decoration: none;
+  //text-decoration: none;
   transition: all 0.2s ease-in-out;
 
   &:hover {
@@ -29,4 +35,4 @@ export default styled(StyledLink)`
     outline: none;
     border: 0;
   }
-`
+`;

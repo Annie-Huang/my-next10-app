@@ -6,10 +6,11 @@ import Dropdown from '../components/dropdown';
 import StyledLink from '../components/StyledLink';
 
 export default function Home() {
+  const pid = 1;
   return (
     <>
       {/*<StyledLink href="/post/[pid]" forwardedAs="/post/abc">*/}
-      <StyledLink href="/post/[pid]" forwardedAs="/post/abc">
+      <StyledLink href='/post/[pid]' forwardedAs={`/post/${pid}`}>
         First post
       </StyledLink>
       <Title>My page test</Title>
