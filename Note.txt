@@ -1,0 +1,9 @@
+
+
+------------------------------------------------------------------------
+
+ahuang23@CMC02FC0ZCML85 projects % npx create-next-app my-next10-app --typescript
+Need to install the following packages:
+  create-next-app
+Ok to proceed? (y) y
+Creating a new Next.js app in /Users/ahuang23/projects/my-next10-app.
