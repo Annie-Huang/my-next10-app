@@ -22,3 +22,9 @@ npx create-next-app --example with-typescript-styled-components with-typescript-
 ahuang23@CMC02FC0ZCML85 my-next10-app % npm install styled-components
 ahuang23@CMC02FC0ZCML85 my-next10-app % npm i --save-dev @types/styled-components
 ahuang23@CMC02FC0ZCML85 my-next10-app % npm install babel-plugin-styled-components --save-dev
+
+  "plugins": [["styled-components", {"ssr": true }]]
+  "plugins": ["inline-react-svg", ["styled-components", { "displayName": true, "preprocess": false, "ssr": true }]]
+doesn't seem to make a different, still output as:
+  <h1 class="pages__Title-rs8gre-0 cVtDEB">My page test</h1>
+
