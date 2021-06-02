@@ -34,6 +34,7 @@ const DropdownIcon = styled.div`
 
 const DropdownWrapper = styled.div`
   ${centeralItem};
+  cursor: pointer;
 
   select {
     -webkit-appearance: none;
@@ -41,6 +42,7 @@ const DropdownWrapper = styled.div`
     text-indent: 1px;
     text-overflow: '';
 
+    cursor: inherit;
     padding: 10px 20px;
     border-radius: 10px 0 0 10px;
     &:focus-visible {
