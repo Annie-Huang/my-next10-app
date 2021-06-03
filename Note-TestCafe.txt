@@ -1,0 +1,8 @@
+https://stackoverflow.com/questions/62165964/how-can-we-add-samsung-galaxy-devices-into-android-emulator
+https://developer.samsung.com/remotetestlab/rtlDeviceList.action
+https://developer.samsung.com/galaxy-emulator-skin/guide.html
+https://xcodereleases.com/
+
+-------------------------------------------------------------------------------------
+ahuang23@CMC02FC0ZCML85 my-next10-app % npm install testcafe --save-dev
+
