@@ -2,6 +2,8 @@ https://stackoverflow.com/questions/62165964/how-can-we-add-samsung-galaxy-devic
 https://developer.samsung.com/remotetestlab/rtlDeviceList.action
 https://developer.samsung.com/galaxy-emulator-skin/guide.html
 https://xcodereleases.com/
+https://www.npmjs.com/package/testcafe
+
 
 -------------------------------------------------------------------------------------
 ahuang23@CMC02FC0ZCML85 my-next10-app % npm install testcafe --save-dev
