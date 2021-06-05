@@ -22,6 +22,8 @@ ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe chrome tests
 
 Style-jsx
 =================
+https://github.com/vercel/next.js/issues/3432
+C:\Temp\my-next10-app>npm i --save-dev @types/styled-jsx
 - Need to investigate this one can work with typescript, seems keep throwing the error of...
     react-dom.development.js?61bb:67 Warning: Received `true` for a non-boolean attribute `jsx`.
     If you want to write it to the DOM, pass a string instead: jsx="true" or jsx={value.toString()}.
