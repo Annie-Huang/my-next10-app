@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import css from 'styled-jsx/css';
 
 export interface ButtonGroup2Props {
   buttons: string[];
@@ -29,8 +30,49 @@ const ButtonGroup2: React.FC<ButtonGroup2Props> = ({
           {buttonLabel}
         </button>
       ))}
-      {localStaticStyle}
-      {localDynamicStyle(defaultBackground)}
+
+      {/*{localStaticStyle}*/}
+      {/*{localDynamicStyle}*/}
+
+      <style jsx>{localStaticStyle}</style>
+      <style jsx>{`
+        button {
+          background: ${defaultBackground ? defaultBackground : '#6c757d'};
+        }
+      `}</style>
+
+      {/*<style jsx>{`*/}
+      {/*  .root {*/}
+      {/*    display: inline-flex;*/}
+      {/*  }*/}
+
+      {/*  button {*/}
+      {/*    border: 0;*/}
+      {/*    background: ${defaultBackground ? defaultBackground : '#6c757d'};*/}
+      {/*    color: white;*/}
+      {/*    cursor: pointer;*/}
+
+      {/*    font-weight: 400;*/}
+      {/*    padding: 0.375rem 0.75rem;*/}
+      {/*    font-size: 1rem;*/}
+      {/*    line-height: 1.5;*/}
+      {/*  }*/}
+      {/*  button:first-of-type {*/}
+      {/*    border-radius: 8px 0 0 8px;*/}
+      {/*  }*/}
+      {/*  button:last-of-type {*/}
+      {/*    border-radius: 0 8px 8px 0;*/}
+      {/*  }*/}
+      {/*  button:hover {*/}
+      {/*    background-color: #5a6268;*/}
+      {/*  }*/}
+      {/*  button:focus {*/}
+      {/*    box-shadow: 0 0 0 0.2rem rgb(130 138 145 / 50%);*/}
+      {/*  }*/}
+      {/*  button.active {*/}
+      {/*    background-color: #545b62;*/}
+      {/*  }*/}
+      {/*`}</style>*/}
     </div>
   );
 };
@@ -43,39 +85,37 @@ const ButtonGroup2: React.FC<ButtonGroup2Props> = ({
   border-radius: 0 8px 8px 0;
 }*/
 
-const localStaticStyle = (
-  <style jsx>{`
-    .root {
-      display: inline-flex;
-    }
+const localStaticStyle = css`
+  .root {
+    display: inline-flex;
+  }
 
-    button {
-      border: 0;
-      color: white;
-      cursor: pointer;
+  button {
+    border: 0;
+    color: white;
+    cursor: pointer;
 
-      font-weight: 400;
-      padding: 0.375rem 0.75rem;
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-    button:first-of-type {
-      border-radius: 8px 0 0 8px;
-    }
-    button:last-of-type {
-      border-radius: 0 8px 8px 0;
-    }
-    button:hover {
-      background-color: #5a6268;
-    }
-    button:focus {
-      box-shadow: 0 0 0 0.2rem rgb(130 138 145 / 50%);
-    }
-    button.active {
-      background-color: #545b62;
-    }
-  `}</style>
-);
+    font-weight: 400;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+  button:first-of-type {
+    border-radius: 8px 0 0 8px;
+  }
+  button:last-of-type {
+    border-radius: 0 8px 8px 0;
+  }
+  button:hover {
+    background-color: #5a6268;
+  }
+  button:focus {
+    box-shadow: 0 0 0 0.2rem rgb(130 138 145 / 50%);
+  }
+  button.active {
+    background-color: #545b62;
+  }
+`;
 
 const localDynamicStyle = (defaultBackground: any) => (
   <style jsx>{`
