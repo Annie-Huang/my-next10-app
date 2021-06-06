@@ -28,6 +28,7 @@ https://github.com/giuseppeg/styled-jsx-plugin-postcss
 https://github.com/vercel/styled-jsx/issues/310
 C:\Temp\my-next10-app>npm i --save-dev @types/styled-jsx
 C:\Temp\my-next10-app>npm install --save-dev styled-jsx-plugin-sass
+C:\Temp\my-next10-app>npm install --save-dev node-sass
 
 Get rip of the follow error through "import css from 'styled-jsx/css';"
 "
