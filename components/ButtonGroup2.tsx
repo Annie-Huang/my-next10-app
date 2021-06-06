@@ -56,21 +56,23 @@ const ButtonGroup2: React.FC<ButtonGroup2Props> = ({
       {/*    padding: 0.375rem 0.75rem;*/}
       {/*    font-size: 1rem;*/}
       {/*    line-height: 1.5;*/}
-      {/*  }*/}
-      {/*  button:first-of-type {*/}
-      {/*    border-radius: 8px 0 0 8px;*/}
-      {/*  }*/}
-      {/*  button:last-of-type {*/}
-      {/*    border-radius: 0 8px 8px 0;*/}
-      {/*  }*/}
-      {/*  button:hover {*/}
-      {/*    background-color: #5a6268;*/}
-      {/*  }*/}
-      {/*  button:focus {*/}
-      {/*    box-shadow: 0 0 0 0.2rem rgb(130 138 145 / 50%);*/}
-      {/*  }*/}
-      {/*  button.active {*/}
-      {/*    background-color: #545b62;*/}
+
+      {/*    &:first-of-type {*/}
+      {/*      border-radius: 8px 0 0 8px;*/}
+      {/*    }*/}
+      {/*    &:last-of-type {*/}
+      {/*      border-radius: 0 8px 8px 0;*/}
+      {/*    }*/}
+
+      {/*    &:hover {*/}
+      {/*      background-color: #5a6268;*/}
+      {/*    }*/}
+      {/*    &:focus {*/}
+      {/*      box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 50%);*/}
+      {/*    }*/}
+      {/*    &.active {*/}
+      {/*      background-color: #545b62;*/}
+      {/*    }*/}
       {/*  }*/}
       {/*`}</style>*/}
     </div>
@@ -99,21 +101,23 @@ const localStaticStyle = css`
     padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
-  }
-  button:first-of-type {
-    border-radius: 8px 0 0 8px;
-  }
-  button:last-of-type {
-    border-radius: 0 8px 8px 0;
-  }
-  button:hover {
-    background-color: #5a6268;
-  }
-  button:focus {
-    box-shadow: 0 0 0 0.2rem rgb(130 138 145 / 50%);
-  }
-  button.active {
-    background-color: #545b62;
+
+    &:first-of-type {
+      border-radius: 8px 0 0 8px;
+    }
+    &:last-of-type {
+      border-radius: 0 8px 8px 0;
+    }
+
+    &:hover {
+      background-color: #5a6268;
+    }
+    &:focus {
+      box-shadow: 0 0 0 0.2rem rgba(130, 138, 145, 50%);
+    }
+    &.active {
+      background-color: #545b62;
+    }
   }
 `;
 

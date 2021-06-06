@@ -30,14 +30,14 @@ export default function Home() {
       <ButtonGroup1
         buttons={['One', 'Two', 'Three']}
         doSomethingAfterClick={printButtonLabel1}
-        defaultBackground='red'
+        // defaultBackground='red'
       />
       <br />
       <br />
       <ButtonGroup2
         buttons={['One', 'Two', 'Three']}
         doSomethingAfterClick={printButtonLabel2}
-        defaultBackground='red'
+        // defaultBackground='red'
       />
     </div>
   );
