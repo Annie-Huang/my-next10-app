@@ -3,3 +3,24 @@ https://prettier.io/docs/en/install.html
 ==========================================================================
 
 C:\Temp\my-next10-app>npm install --save-dev --save-exact prettier
+
+
+TODO:
+==============
+1. remove ' .prettierrc' file.
+2. renaming '.pretterrc.js' to '.prettierrc'? (https://prettier.io/docs/en/configuration.html)
+3. https://prettier.io/docs/en/options.html#parser
+{
+	semi: true,                 <<< already true by default.
+	trailingComma: "es5",       <<< already es5 by default
+	printWidth: 80,             <<< already 80 by default
+	tabWidth: 2,                <<< already 2 by default
+
+    singleQuote: false,         <<< ??? Can we set this to true
+	useTabs: true,              <<< ??? Can we set this to be false (default from .prettier)
+
+	jsxSingleQuote: true        <<< ??? Can we add this?
+}
+
+
+
