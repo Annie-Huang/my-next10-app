@@ -1,4 +1,17 @@
 https://prettier.io/docs/en/install.html
+https://eslint.org/docs/user-guide/getting-started
+
+https://github.com/vercel/next.js/blob/canary/.eslintrc.json
+https://github.com/facebook/create-react-app/blob/master/.eslintrc.json
+
+https://paulintrognon.fr/blog/typescript-prettier-eslint-next-js
+https://jakeprins.com/blog/how-to-use-eslint-and-prettier-in-your-next-js-application-with-typescript
+https://joelmasters.medium.com/setting-up-eslint-for-nextjs-37163d4cabaa
+https://benjaminwfox.medium.com/next-js-setup-config-for-testing-linting-and-absolute-imports-605959d7bd6f
+https://dev.to/onygami/eslint-and-prettier-for-react-apps-bonus-next-js-and-typescript-3e46
+https://velog.io/@ykim5470/NEXT.js-setting-with-airbnb-eslint-prettier-application-kqk53l0oso
+https://github.com/daphnesmit/next-react-typescript-boilerplate/blob/master/.eslintrc.js
+https://blog.bitsrc.io/top-nextjs-boilerplates-for-2021-faa59048c660
 
 ==========================================================================
 
@@ -22,5 +35,197 @@ TODO:
 	jsxSingleQuote: true        <<< ??? Can we add this?
 }
 
+===============================
+'plugin:jsx-a11y/recommended',  <<< ??? Is this one working for tsx?
 
+=============================================================
 
+// .eslintrc.js
+module.exports = {
+  root: true,
+  env: {
+    node: true,
+    es6: true,
+  },
+  parserOptions: { ecmaVersion: 8 }, // to enable features such as async/await
+  ignorePatterns: ['node_modules/*', '.next/*', '.out/*', '!.prettierrc.js'], // We don't want to lint generated files nor node_modules, but we want to lint .prettierrc.js (ignored by default by eslint)
+  extends: ['eslint:recommended'],
+  overrides: [
+    // This configuration will apply only to TypeScript files
+    {
+      files: ['**/*.ts', '**/*.tsx'],
+      parser: '@typescript-eslint/parser',
+      settings: { react: { version: 'detect' } },
+      env: {
+        browser: true,
+        node: true,
+        es6: true,
+      },
+      extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/recommended', // TypeScript rules
+        'plugin:react/recommended', // React rules
+        'plugin:react-hooks/recommended', // React hooks rules
+        'plugin:jsx-a11y/recommended', // Accessibility rules
+      ],
+      rules: {
+        // We will use TypeScript's types for component props instead
+        'react/prop-types': 'off',
+
+        // No need to import React when using Next.js
+        'react/react-in-jsx-scope': 'off',
+
+        // This rule is not compatible with Next.js's <Link /> components
+        'jsx-a11y/anchor-is-valid': 'off',
+
+        // Why would you want unused vars?
+        '@typescript-eslint/no-unused-vars': ['error'],
+
+        // I suggest this setting for requiring return types on functions only where useful
+        '@typescript-eslint/explicit-function-return-type': [
+          'warn',
+          {
+            allowExpressions: true,
+            allowConciseArrowFunctionExpressionsStartingWithVoid: true,
+          },
+        ],
+      },
+    },
+  ],
+}
+
+------------------------
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": [
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "@typescript-eslint",
+    "react"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  },
+  "globals": {
+    "React": "writable"
+  }
+}
+
+-----------------------------
+469 thumb up...
+
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "rules": {
+    "react/react-in-jsx-scope": "off"
+  },
+  "globals": {
+    "React": "writable"
+  }
+}
+
+----------------------------------
+{
+  "extends": [
+    "eslint:all",
+    "plugin:react/all",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
+  "env": {
+    "browser": true,
+    "es2020": true,
+    "node": true,
+    "jest": true
+  },
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "rules": {
+    "indent": ["error", 2],
+    "quotes": ["error", "single"],
+    "semi": ["error", "never"],
+    "max-len": 0,
+    "max-lines-per-function": 0,
+    "space-before-function-paren": ["error", {
+      "anonymous": "never",
+      "named": "never",
+      "asyncArrow": "always"
+    }],
+    "function-call-argument-newline": 0,
+    "padded-blocks": 0,
+    "padding-line-between-statements": [
+      "error",
+      { "blankLine": "always", "prev": "*", "next": "return" },
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
+      { "blankLine": "any",    "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
+    ],
+    "object-curly-spacing": ["error", "always"],
+    "one-var": ["error", "never"],
+    "quote-props": 0,
+    "react/jsx-indent": [2, 2],
+    "react/jsx-indent-props": [2, 2],
+    "react/jsx-filename-extension": 0,
+    "react/react-in-jsx-scope": 0,
+    "react/jsx-no-literals": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-max-depth": 0
+  },
+  "ignorePatterns": ["node_modules/", ".next/"]
+}
+
+------------------
+125 thumb up:
+module.exports = {
+    root: true,
+    parser: '@typescript-eslint/parser',
+    parserOptions: {
+        ecmaVersion: 2020,
+        sourceType: 'module',
+        ecmaFeatures: {
+            jsx: true
+        }
+    },
+    settings: {
+        react: {
+            version: 'detect'
+        }
+    },
+    env: {
+        browser: true,
+        amd: true,
+        node: true
+    },
+    extends: [
+        'eslint:recommended',
+        'plugin:@typescript-eslint/eslint-recommended',
+        'plugin:@typescript-eslint/recommended',
+        'plugin:react/recommended',
+        'plugin:jsx-a11y/recommended',
+        'prettier/@typescript-eslint',
+        'plugin:prettier/recommended'   // Make sure this is always the last element in the array.
+    ],
+    rules: {
+        'prettier/prettier': ['error', {}, { usePrettierrc: true }],
+        'react/react-in-jsx-scope': 'off',
+        'react/prop-types': 'off',
+        '@typescript-eslint/explicit-function-return-type': 'off',
+        'simple-import-sort/sort': 'error',
+        'jsx-a11y/anchor-is-valid': [
+            'error',
+            {
+                components: ['Link'],
+                specialLink: ['hrefLeft', 'hrefRight'],
+                aspects: ['invalidHref', 'preferButton']
+            }
+        ]
+    }
+};

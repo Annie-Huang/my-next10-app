@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx}' --write './{cypress,mock}/**/*.{js,jsx,ts,tsx}'"
+    "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx}' --write './{cypress,mock}/**/*.{js,jsx,ts,tsx}'",
+    "lint:css":"stylelint './src/**/*.tsx'"
   },
   "dependencies": {
     "next": "10.2.3",
