@@ -22,11 +22,28 @@ ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe chrome tests
 
 Style-jsx
 =================
+https://github.com/vercel/next.js/issues/3432
+https://github.com/giuseppeg/styled-jsx-plugin-sass
+https://github.com/vercel/styled-jsx/issues/560
+https://github.com/giuseppeg/styled-jsx-plugin-postcss
+https://github.com/vercel/styled-jsx/issues/310
+
+C:\Temp\my-next10-app>npm i --save-dev @types/styled-jsx
+C:\Temp\my-next10-app>npm install --save-dev styled-jsx-plugin-sass
+C:\Temp\my-next10-app>npm install --save-dev node-sass
+
+Get rip of the follow error through "import css from 'styled-jsx/css';"
+"
+However I wouldn't recommend that since css produces both scoped and global styles.
+We need to optimize that in the future so that styles like that are tree-shakeable and tools can do dead code elimination.
+"
 - Need to investigate this one can work with typescript, seems keep throwing the error of...
     react-dom.development.js?61bb:67 Warning: Received `true` for a non-boolean attribute `jsx`.
     If you want to write it to the DOM, pass a string instead: jsx="true" or jsx={value.toString()}.
 
 - Need to investigate how nesting working with a plugin...
+  Solution: Need to use node-sass...
+
 
 Styled-component:
 ==========================
