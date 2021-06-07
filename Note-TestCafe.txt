@@ -3,8 +3,24 @@ https://developer.samsung.com/remotetestlab/rtlDeviceList.action
 https://developer.samsung.com/galaxy-emulator-skin/guide.html
 https://xcodereleases.com/
 https://www.npmjs.com/package/testcafe
-
+https://testcafe.io/documentation/402828/guides/concepts/browsers#use-chromium-device-emulation
 
 -------------------------------------------------------------------------------------
 ahuang23@CMC02FC0ZCML85 my-next10-app % npm install testcafe --save-dev
+ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe chrome testcafe-suite/home-page.spec.ts
 
+ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe –-list-browsers        <<< Not working.. not sure why...
+
+Problem with safari
+==========================
+- Don't seem to be able to resize with width=400;height=800;
+  - "tc:safari:iphone": "testcafe 'safari:emulation:device=iphone 12;width=400;height=800;' testcafe-suite",
+
+- Don't seem to be able to do headless;
+
+Problem with firefox
+=========================
+- No mobile version.
+
+
+"tc:annie1": "testcafe 'chrome:emulation:width=100;height=200;mobile=true;orientation=vertical;touch=true' testcafe-suite",

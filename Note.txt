@@ -7,6 +7,8 @@ https://github.com/vercel/next.js/tree/master/examples/with-typescript
 https://github.com/vercel/next.js/tree/master/examples/with-typescript-styled-components
 https://github.com/vercel/next.js/tree/master/examples/with-typescript-eslint-jest
 
+https://dev.to/ramonak/react-how-to-create-a-custom-button-group-component-in-5-minutes-3lfd
+
 =============================================================================================
 
 ahuang23@CMC02FC0ZCML85 projects % npx create-next-app my-next10-app --typescript

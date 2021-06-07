@@ -20,7 +20,7 @@ const ButtonGroup1: React.FC<ButtonGroup1Props> = ({
   };
 
   return (
-    <ButtonGroup1Wrapper>
+    <ButtonGroup1Wrapper data-testid='button-group'>
       {buttons.map((buttonLabel, index) => (
         <Button
           key={index}

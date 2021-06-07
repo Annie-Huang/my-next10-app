@@ -34,11 +34,12 @@ export default function Home() {
       />
       <br />
       <br />
+      {/*
       <ButtonGroup2
         buttons={['One', 'Two', 'Three']}
         doSomethingAfterClick={printButtonLabel2}
         // defaultBackground='red'
-      />
+      />*/}
     </div>
   );
 }
