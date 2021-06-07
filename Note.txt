@@ -20,6 +20,14 @@ TestCafe:
 ahuang23@CMC02FC0ZCML85 projects % npm i -g testcafe
 ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe chrome tests
 
+Style-jsx
+=================
+- Need to investigate this one can work with typescript, seems keep throwing the error of...
+    react-dom.development.js?61bb:67 Warning: Received `true` for a non-boolean attribute `jsx`.
+    If you want to write it to the DOM, pass a string instead: jsx="true" or jsx={value.toString()}.
+
+- Need to investigate how nesting working with a plugin...
+
 Styled-component:
 ==========================
 npx create-next-app --example with-typescript-styled-components with-typescript-styled-components-app
