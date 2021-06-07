@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "prettier": "prettier --write './src/**/*.{js,jsx,ts,tsx}' --write './{cypress,mock}/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
     "next": "10.2.3",
@@ -20,5 +21,15 @@
     "babel-plugin-styled-components": "^1.12.0",
     "prettier": "2.3.1",
     "typescript": "4.3.2"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./{src|cypress}/**/*.{js,jsx,ts,tsx}": [
+      "prettier --write"
+    ]
   }
 }
