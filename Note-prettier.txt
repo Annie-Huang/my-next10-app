@@ -1,0 +1,5 @@
+https://prettier.io/docs/en/install.html
+
+==========================================================================
+
+C:\Temp\my-next10-app>npm install --save-dev --save-exact prettier
