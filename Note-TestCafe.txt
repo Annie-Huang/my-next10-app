@@ -14,13 +14,24 @@ ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe –-list-browsers        <<< No
 Problem with safari
 ==========================
 - Don't seem to be able to resize with width=400;height=800;
-  - "tc:safari:iphone": "testcafe 'safari:emulation:device=iphone 12;width=400;height=800;' testcafe-suite",
+    "tc:safari:iphone": "testcafe 'safari:emulation:device=iphone 12;width=400;height=800;' testcafe-suite",
 
 - Don't seem to be able to do headless;
+    "tc:annie": "testcafe 'safari:headless:emulation:device=iphone 12' testcafe-suite",
 
 Problem with firefox
 =========================
 - No mobile version.
 
+#########################################################
+
+1.
+-c 5    <<< Doesn't seem to make it slower...
+
+2.
+As long as safari, it cannot be headless. the safari test will have to turn on...
+
+#########################################################
 
 "tc:annie1": "testcafe 'chrome:emulation:width=100;height=200;mobile=true;orientation=vertical;touch=true' testcafe-suite",
+"tc:mobile": "testcafe 'chrome:emulation:device=mobile;width=400;height=800;' testcafe-suite",

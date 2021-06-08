@@ -13,10 +13,10 @@
     "tc:chrome:headless": "testcafe chrome:headless testcafe-suite",
     "tc:chrome:iphone": "testcafe 'chrome:emulation:device=iphone 12;width=400;height=800;' testcafe-suite",
     "tc:safari:iphone": "testcafe 'safari:emulation:device=iphone 12;width=400;height=800;' testcafe-suite",
-    "tc:mobile": "testcafe 'chrome:emulation:device=mobile;width=400;height=800;' testcafe-suite",
-    "tc:browsers": "testcafe -c 3 'chrome:headless','safari:headless','firefox:headless' testcafe-suite",
-    "tc:iphone": "testcafe -c 2 'chrome:emulation:device=iphone 12;width=400;height=800;', 'safari:simulator:device=iphone 12' testcafe-suite",
-    "tc:pixel": "testcafe 'chrome:emulation:device=pixel 3;width=400;height=800;' testcafe-suite"
+    "tc:browsers": "testcafe 'chrome','safari','firefox' testcafe-suite",
+    "tc:iphone": "testcafe 'chrome:emulation:device=iphone 12;width=400;height=800;', 'safari:emulation:device=iphone 12' testcafe-suite",
+    "tc:pixel": "testcafe 'chrome:emulation:device=pixel 3;width=400;height=800;' testcafe-suite",
+    "tc:all":  "testcafe 'chrome:headless','safari:headless','firefox:headless', 'chrome:headless:emulation:device=iphone 12;width=400;height=800;', 'safari:emulation:device=iphone 12', 'chrome:headless:emulation:device=pixel 3;width=400;height=800;' testcafe-suite"
   },
   "dependencies": {
     "next": "10.2.3",
