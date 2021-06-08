@@ -68,6 +68,7 @@ const Button = styled.button<{ active?: boolean; defaultBackground?: string }>`
   }
   &:focus {
     box-shadow: 0 0 0 0.2rem rgb(130 138 145 / 50%);
+    background-color: #5a6268;
   }
   &.active {
     background-color: #545b62;
