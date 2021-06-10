@@ -29,6 +29,9 @@ Notes
    Samsung does offer virtual testing machine for 30 mins usage.
    Suggest not to worry about real devices for now.
 6. Good things about testcafe is that it is more aligned with css selector than cypress.
+7. If you want to run specific file you can do: testcafe chrome testcafe-suite/button.spec.tc
+8. We can change the testcafe-suite folder name people prefer another name.
+9. Do you guys want the sample-test-page.spec.ts file to be there?
 
 Problem with safari
 ==========================
