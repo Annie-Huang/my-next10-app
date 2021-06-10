@@ -11,6 +11,25 @@ ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe chrome testcafe-suite/home-page
 
 ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe –-list-browsers        <<< Not working.. not sure why...
 
+
+
+Notes
+#############################################
+0. In order for this to run, it needs to be outside the colesecure network and have storybook running...
+1. We can do testcafe test in component library. But we should really do mobile test in the app level.
+   storybook is not good for e2e on different browser sizing, e.g. it only got 4 sizes.
+2. Will Add Util for mobile test on app later (usually it is the hamburger view)
+3. Explain the structure for mobile vs deskstop testing
+   A. divide file into desktop set and mobile set.
+   B. group them all under one file and have -mobile.ts for mobile file, -desktop.ts for desktop file. and use util class.
+4. -c 5. This doesn't seem to make it slower...
+5. All the test cafe test is not triggered in android studio and xcode atm.
+   Latest version of android studio only have pixer emulator. Previous version got samsung. The current version got it removed.
+   We can download the samsung skin for the emulator but underneath OS does not change.
+   Samsung does offer virtual testing machine for 30 mins usage.
+   Suggest not to worry about real devices for now.
+6. Good things about testcafe is that it is more aligned with css selector than cypress.
+
 Problem with safari
 ==========================
 - Don't seem to be able to resize with width=400;height=800;
@@ -19,17 +38,13 @@ Problem with safari
 - Don't seem to be able to do headless;
     "tc:annie": "testcafe 'safari:headless:emulation:device=iphone 12' testcafe-suite",
 
+- As long as the test suite for safari, it cannot do headless, which means we cannot test it as CI:CD???
+
+
 Problem with firefox
 =========================
 - No mobile version.
 
-#########################################################
-
-1.
--c 5    <<< Doesn't seem to make it slower...
-
-2.
-As long as safari, it cannot be headless. the safari test will have to turn on...
 
 #########################################################
 

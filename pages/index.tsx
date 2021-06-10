@@ -6,6 +6,7 @@ import Dropdown from '../components/dropdown';
 import StyledLink from '../components/StyledLink';
 import ButtonGroup1 from '../components/ButtonGroup1';
 import ButtonGroup2 from '../components/ButtonGroup2';
+import React from 'react';
 
 export default function Home() {
   const pid = 1;
@@ -19,7 +20,11 @@ export default function Home() {
   };
 
   return (
-    <div style={{ marginLeft: '50px' }}>
+    <HomeWrapper>
+      <div className='browser-size'>
+        <div className='mobile'>MobileView</div>
+      </div>
+
       {/*<StyledLink href="/post/[pid]" forwardedAs="/post/abc">*/}
       <StyledLink href='/post/[pid]' forwardedAs={`/post/${pid}`}>
         First post
@@ -40,9 +45,24 @@ export default function Home() {
         doSomethingAfterClick={printButtonLabel2}
         // defaultBackground='red'
       />*/}
-    </div>
+    </HomeWrapper>
   );
 }
+
+const HomeWrapper = styled.div`
+  margin-left: 50px;
+
+  @media screen and (min-width: 0px) and (max-width: 400px) {
+    .browser-size {
+      display: block;
+    } /* show it on smaller screen */
+  }
+  @media screen and (min-width: 401px) and (max-width: 1024px) {
+    .browser-size {
+      display: none;
+    } /* hide it on larger screens */
+  }
+`;
 
 const Title = styled.h1`
   color: red;
