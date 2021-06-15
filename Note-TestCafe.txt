@@ -5,6 +5,8 @@ https://xcodereleases.com/
 https://www.npmjs.com/package/testcafe
 https://testcafe.io/documentation/402828/guides/concepts/browsers#use-chromium-device-emulation
 
+https://github.com/DevExpress/testcafe/blob/master/examples/.testcaferc.json
+
 -------------------------------------------------------------------------------------
 ahuang23@CMC02FC0ZCML85 my-next10-app % npm install testcafe --save-dev
 ahuang23@CMC02FC0ZCML85 my-next10-app % testcafe chrome testcafe-suite/home-page.spec.ts
