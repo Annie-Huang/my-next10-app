@@ -1,0 +1,225 @@
+https://www.comparitech.com/net-admin/log-management-tools/
+https://www.softwaretestinghelp.com/log-management-software/
+https://www.trustradius.com/log-management?f=0
+
+Keywords on search:
+react app monitoring tools compare
+monitor react app
+
+
+https://geekflare.com/frontend-web-monitoring/
+https://geekflare.com/cloud-apm/
+https://sematext.com/blog/real-user-monitoring-tools/
+
+https://blog.sentry.io/2021/06/10/sentry-application-monitoring-for-next-js
+https://github.com/getsentry/sentry-javascript
+https://github.com/getsentry/sentry-javascript/tree/master/packages/nextjs
+https://experienceleague.adobe.com/docs/experience-manager-cloud-manager/using/overview/customer-journey.html
+https://stackshare.io/stackups/logrocket-vs-sentry
+https://www.overops.com/blog/the-complete-guide-to-error-tracking-tools-rollbar-vs-raygun-vs-sentry-vs-airbrake-vs-bugsnag-vs-overops/#chapter2
+
+https://docs.sentry.io/platforms/javascript/guides/react/
+https://docs.logrocket.com/docs
+https://docs.logrocket.com/v1.0/reference#javascript-sdk-api
+https://docs.rollbar.com/docs
+https://github.com/rollbar/rollbar-react
+
+
+https://kentcdodds.com/blog/react-production-performance-monitoring
+Open Source Logging: Getting Started with Graylog Tutorial (https://www.youtube.com/watch?v=rtfj6W5X0YA)
+
+############################################################################################################################################
+
+Application Performance Management or Monitoring (APM) is essential for any web application to provide a better user experience.
+Elastic Observability
+Dynatrace
+New Relic
+App Dynamics
+Datadog
+IBM APM
+Monitis
+Scout App
+
+----------------
+
+Frontend application monitoring is the process of tracking errors, fixing them, and maintaining the health of web applications.
+It is done to optimize user experience by removing any kind of error that could be harmful to your application.
+You can catch errors at the initial stage, which would be easy for your developers to tackle. Subsequently, they can work on debugging and improving the code.
+
+Don’t confuse it with application performance monitoring because it focuses on the ultimate result that users can see while opening your application.
+
+Sentry
+LogRocket
+Rollbar
+AppSignal
+Raygun
+Airbrake
+Firebase
+
+
+- Network request failure
+    monitoring tools can record those HTTP requests and the responses initiated by the user to find the errors.
+- Performance issues
+    Some monitoring tools can also track app performance metrics, including average page loading time, time-to-first-paint, average server response time, and more.
+- User experience problems
+    (not sure how to monitor these) If a user performs “rage clicks” or clicks some elements quickly for multiple times, the tools can effectively monitor this. Additionally, they can also ensure elements are rendered correctly and detected when a user gets stuck in a certain navigation loop.
+
+Sentry:
+- $80/month for business package. Not sure for enterprice package.
+- With Breadcrumbs, you can see the events leading to the errors, which helps you prioritize the bugs based on their possible impact on users and your business.
+  Sentry tells you things you must know to detect errors and find them based on the overall context.
+- The tool is capable of associating errors with a specific release.
+  With the release feature, you can see when and who caused the bug or error to happen, and it also provides additional context such as commit data,
+- This context also defines the error environment, i.e., language and operating system.
+
+LogRocket:
+- LogRocket lets you playback user sessions so you can see the pixel-perfect view of everything whatever your users can view in real-time.
+- View network activity, including response and request. You can also inspect state and actions during a specific time along with JavaScript errors and console logs.
+- LogRocket lets you track IP address and user-agent tracking for each session, which is also useful in providing information about what browser they are using and troubleshooting problems specific to their browsers.
+
+Rollbar
+- Rollbar automates triaging and error monitoring so developers could fix errors within minutes while building software painlessly.
+- It provides real-time results in addition to stacking traces against local variables.
+
+AppSignal
+- The five types of monitoring
+  Error tracking to detect error and ensure it doesn't repeat
+  Performance monitoring to fine-tune your app
+  Server monitoring to run healthy applications on optimal hardware
+  Metric dashboards to collect real-time metrics and then visualize them in your dashboard
+  Anomaly detection to set triggers plus receive alerts in case any of the metrics go wrong.
+
+Airbrake
+- It is a lightweight and simple tool that you can set up easily and get it running in no time.
+- The moment an error occurs in your application, it notifies you with real-time alerts.
+- Find the root cause of the error through Breadcrumbs and Backtraces that display the exact cause responsible for the error, simplifying its fixing.
+
+New Relic:
+- Application Monitoring – monitoring everything you need to understand the application performance & capacity. For ex:
+  How much time take to load the page?
+  What is the most time-consuming transaction?
+  What is the throughput and error rate?
+  Monitor critical transaction with breakdown and traceback
+- Along with the monitoring, you can do thread profiling, use Java performance analyzer for performance-related troubleshooting.
+- Database Monitoring – most likely, you will be using some database with your enterprise application, and you can do following out of the box with New Relic.
+  Track the slow running queries
+  How much time is spent on database requests?
+  Visualize database operation
+  Database call response time & throughput
+- Alerting – alerting is essential for a production environment. With the help of New Relic, you can configure the alert policies to notify when a threshold is breached. You can integrate alerting with the channel such as email, Jira, Pager Duty, etc.
+
+App Dynamics:
+- (Backend code monitoring?) App Dynamics APM supports many platforms, including Java, Node.js, Apache HTTP, Python, PHP.
+
+Datadog:
+- It monitors full-stack, including application & infrastructure, to provide visibility at each layer of the stack.
+- Datadog provides an advanced dashboard for visualizing the metrics matter to you. For ex;
+  Latency
+  Errors per second
+  Hits per second
+  CPU/Memory utilization
+
+
+Checklist -->
+- Check how good the dashboard of the tool is for analyzing information.
+- Whether the tool includes an API reference or not
+- Find out how many integrations the tool supports to keep using other apps and services.
+- How deep the tool can trace the issues.
+- Check whether the tool provides the option for on-premise.
+- The tool must have good security features.
+- The service provider must be offering quality technical support through multiple channels and 24/7 availability.
+- Last but not least, pick the service in-line with your budget. For this, check multiple services, compare the offerings and pricing, and then go for the right combination.
+
+The inclusion of a log message collector, a server, and a consolidator
+The ability to create logfile names with meaningful structure and rotate them, opening new files periodically
+The creation and maintenance of a log file directory structure
+A data viewer that includes data analysis functions, such as filtering and sorting
+Data portability
+The offer of a free demo or trial for a no-cost assessment
+A good deal that offers valuable services at a reasonable price
+
+Questions to evaluation:
+- price.
+- platform that it run. (preferred window and Mac)
+- have a dashboard.
+- have easy called function and configuration for setup.
+- can hook into alert system to trigger email/slack msg/sms when the threadhold is reached.
+- able to track user steps to generate the error.
+-
+
+Questions to ask:
+- How AppDynamic is installed into the app?
+- Is it able to keep track of an error from frontend all the way to the backend log, e.g. if it's a backend problem?
+- How do you use with splunk? To filter the log? What else do you use splunk for?
+- What standard info is the dashboard provided?
+
+- Is it able to catch runtime error?
+- Do you catch api call error in the try{}catch{} block? What else do you logging in the application?
+
+- Do you find it easy to use? What is the learning curve?
+- How long do you guys keep the log, does it got erase when it reach certain max limit in size or passes xx days?
+- Is the dev team actively monitor the log? Or another team? Is there alert triggered be setup? E.g. if pass X number of error per minute?
+- Do we have an enterprise licence for these two tools? What is their technical support channels like? 24/7?
+- What do you don't like about AppDynamic and Splunk and what feature you wish you have?
+- Do you have experience using other tools before and what are they like?
+
+
+============================================================================================
+
+
+
+Datadog
+    Windows,
+    Mac,
+    Linux,
+    Debian,
+    Ubuntu,
+    CentOS,
+    RedHat.
+
+    On-premise and SaaS.
+
+    Starts at $1.27 per million log events per month for the 7-day retention.
+
+
+Splunk
+    Windows,
+    Mac,
+    Linux,
+    Solaris.
+
+    On-Premises & SaaS.
+
+    Free plan,
+    Enterprise: $150 per ingested GB per month
+    Cloud: Get a quote
+
+sentry
+logrocket
+appDynamics,
+Elastic
+
+
+============================================
+They consider monitoring as a part of their operational efforts, and they usually leave it to an Ops engineer or sysadmin
+for that matter. It may not be a healthy practice as it overburdens them and might result in loopholes.
+
+
+============================================
+[4:25 pm] Keith Maine
+    Annie, you need to be more specific. We do use - appDynamics  within Coles for some websites, speak to Markus Blaser to get a full run down on whether this provides what you require since you mention client side - which I'm sure AppD could do. There are Adobe tools that can provide device information etc which are in use - see Jacob Toy. Again, more info required.
+
+Christinique Chapman: BA
+
+Max Paik: api team
+- AEM and Use application insights
+  https://experienceleague.adobe.com/docs/experience-manager-cloud-manager/using/overview/customer-journey.html
+
+Steven Corral: Patrik's boss...
+
+Jordon scott, referrenced by Tarik Wahid (insight team)
+- Chandramohan Kkrishnamoorthi
+- Saurabh Gupta
+
+Max Paik: said they use AEM for user journey and application insign for loggin
+
