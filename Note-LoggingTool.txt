@@ -17,12 +17,16 @@ https://github.com/getsentry/sentry-javascript/tree/master/packages/nextjs
 https://experienceleague.adobe.com/docs/experience-manager-cloud-manager/using/overview/customer-journey.html
 https://stackshare.io/stackups/logrocket-vs-sentry
 https://www.overops.com/blog/the-complete-guide-to-error-tracking-tools-rollbar-vs-raygun-vs-sentry-vs-airbrake-vs-bugsnag-vs-overops/#chapter2
+https://rollbar.com/vs/sentry/
+
 
 https://docs.sentry.io/platforms/javascript/guides/react/
 https://docs.logrocket.com/docs
 https://docs.logrocket.com/v1.0/reference#javascript-sdk-api
 https://docs.rollbar.com/docs
 https://github.com/rollbar/rollbar-react
+
+
 
 
 https://kentcdodds.com/blog/react-production-performance-monitoring
@@ -206,6 +210,32 @@ for that matter. It may not be a healthy practice as it overburdens them and mig
 
 
 ============================================
+KDD owners, just follow up with our convo yesterday, could you please add these sections to your KDDs
+Recommendation
+ - this is the recommended option after comparison
+ - recap some main reasons
+Review
+ - kindly ask for reviews by relevant stakeholders, eg. logging/monitoring - devops team, analytics - UI/UX team, ci/cd - devops team
+Assumptions
+ - if this KDD has been done based on a list of assumptions
+Follow ups
+ - if this KDD is approved, what are the follow up actions, eg. approach sentry for corporate licensing quote, implement approaved ci/cd, etc
+
+============================================
+
+First Contentful Paint - (here is a doc explaining what it is First Contentful Paint (FCP) ).
+"The First Contentful Paint (FCP) metric measures the time from when the page starts loading to when any part of the page's content is rendered on the screen. For this metric, "content" refers to text, images (including background images), <svg> elements, or non-white <canvas> elements."
+
+Largest Contentful Paint - (here is a doc explaining what it is Largest Contentful Paint (LCP)  ).
+"Largest Contentful Paint (LCP) is an important, user-centric metric for measuring perceived load speed because it marks the point in the page load timeline when the page's main content has likely loaded—a fast LCP helps reassure the user that the page is useful."
+
+Cumulative Layout Shift - (here is a doc explaining what it is Cumulative Layout Shift (CLS) ).
+"Cumulative Layout Shift (CLS) is an important, user-centric metric for measuring visual stability because it helps quantify how often users experience unexpected layout shifts—a low CLS helps ensure that the page is delightful."
+
+First Input Delay - (here is a doc explaining what it is https://web.dev/fid/).
+"First Input Delay (FID) is an important, user-centric metric for measuring load responsiveness because it quantifies the experience users feel when trying to interact with unresponsive pages—a low FID helps ensure that the page is usable."
+
+============================================
 [4:25 pm] Keith Maine
     Annie, you need to be more specific. We do use - appDynamics  within Coles for some websites, speak to Markus Blaser to get a full run down on whether this provides what you require since you mention client side - which I'm sure AppD could do. There are Adobe tools that can provide device information etc which are in use - see Jacob Toy. Again, more info required.
 
@@ -218,8 +248,118 @@ Max Paik: api team
 Steven Corral: Patrik's boss...
 
 Jordon scott, referrenced by Tarik Wahid (insight team)
-- Chandramohan Kkrishnamoorthi
-- Saurabh Gupta
+- Chandramohan Kkrishnamoorthi is the dev support team in col team
+- Saurabh Gupta is the dev support team in col team
 
 Max Paik: said they use AEM for user journey and application insign for loggin
+
+Ashish Kaul, manager in charge of col team.
+Rahul Semwal is the dev in col team
+- col is using angular1, also got jsp page. appdynamic, splunk for backend monitoring.
+
+Matthew Kingston or Divya Sri Thodangi, frontend dev of the cdc team.
+- cdc is using react, New Relic for backend monitoring.
+@Surender Singh is doing everything...
+
+=====================================================================
+
+How to use sentry:
+----------------------
+search 'next js with sentry project example' in google...
+https://docs.sentry.io/platforms/javascript/guides/nextjs/
+https://www.npmjs.com/package/@sentry/nextjs
+https://github.com/getsentry/sentry-javascript
+https://github.com/getsentry/sentry-javascript/tree/master/packages/nextjs      !!!!
+/Users/ahuang23/projects/temp/sentry-javascript/packages/nextjs     <-- Global search sentry, it is forked the above directory
+https://github.com/vercel/next.js/issues/8106
+https://github.com/UnlyEd/next-right-now                          !!!!
+https://www.programmersought.com/article/97774830952/
+https://github.com/UnlyEd/next-typescript-api-zeit-boilerplate/blob/master/src/pages/api/date.ts
+
+
+For people looking to implement Sentry with Next.js, make sure to check out https://github.com/UnlyEd/next-right-now
+Interesting parts are:
+https://github.com/UnlyEd/next-right-now/blob/master/src/utils/sentry.ts (Sentry config)
+https://github.com/UnlyEd/next-right-now/blob/master/src/pages/_app.tsx (Various Sentry usage)
+https://github.com/UnlyEd/next-right-now/blob/master/src/pages/index.tsx (Various Sentry usage)
+https://github.com/UnlyEd/next-right-now/blob/master/src/pages/_error.tsx (Sentry to catch errors)
+https://github.com/UnlyEd/next-right-now/blob/master/next.config.js#L60 (universal Sentry)
+
+https://gist.github.com/mcdougal/7bf001417c3dc4b579da224b12776691
+https://github.com/vercel/next.js/tree/canary/examples/with-sentry                !!!!
+https://sentry.io/for/nextjs/       !!!!
+https://github.com/vercel/next.js/issues/1852       <<< got a good entry from 'Vadorequest commented on 19 Dec 2020'
+
+
+-------
+npm install --save @sentry/nextjs
+npx @sentry/wizard -i nextjs
+
+create sentry.client.config.js and sentry.server.config.js with the default Sentry.init
+create next.config.js with the default configuration
+create sentry.properties with configuration for sentry-cli (which is used when automatically uploading source maps)
+
+--------
+
+Sentry.configureScope(scope => {
+  scope.setExtra('battery', 0.7);
+  scope.setTag('user_mode', 'admin');
+  scope.setUser({ id: '4711' });
+  // scope.clear();
+});
+
+Sentry.setUser({ email: "john.doe@example.com" });
+Sentry.configureScope(scope => scope.setUser(null));
+Sentry.setTag("page_locale", "de-at");
+
+Sentry.captureMessage('Hello, world!');
+Sentry.captureException(new Error('Good bye'));
+Sentry.captureEvent({
+  message: 'Manual',
+  stacktrace: [
+    // ...
+  ],
+});
+
+=====================================================================
+
+How to use rollbar:
+----------------------
+
+https://docs.rollbar.com/docs/react     !!!!
+https://docs.rollbar.com/docs/nodejs    !!!!
+https://github.com/rollbar/rollbar-react    << As of April 2021, Rollbar has a new React library for React JS and React Native. Use the instructions found here to implement the newer library.
+https://github.com/vercel/next.js/issues/1852
+
+
+function installErrorHandler(app) {
+  const _renderErrorToHTML = app.renderErrorToHTML.bind(app)
+  const errorHandler = rollbar.errorHandler()
+
+  app.renderErrorToHTML = (err, req, res, pathname, query) => {
+    if (err) {
+      errorHandler(err, req, res, () => {})
+    }
+
+    return _renderErrorToHTML(err, req, res, pathname, query)
+  }
+
+  return app
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
