@@ -241,9 +241,10 @@ First Input Delay - (here is a doc explaining what it is https://web.dev/fid/).
 
 Christinique Chapman: BA
 
-Max Paik: api team
+Max Paik: BFF team
 - AEM and Use application insights
   https://experienceleague.adobe.com/docs/experience-manager-cloud-manager/using/overview/customer-journey.html
+Max Paik: said they use AEM for user journey and azure application insight for logging
 
 Steven Corral: Patrik's boss...
 
@@ -251,7 +252,6 @@ Jordon scott, referrenced by Tarik Wahid (insight team)
 - Chandramohan Kkrishnamoorthi is the dev support team in col team
 - Saurabh Gupta is the dev support team in col team
 
-Max Paik: said they use AEM for user journey and application insign for loggin
 
 Ashish Kaul, manager in charge of col team.
 Rahul Semwal is the dev in col team
@@ -259,7 +259,7 @@ Rahul Semwal is the dev in col team
 
 Matthew Kingston or Divya Sri Thodangi, frontend dev of the cdc team.
 - cdc is using react, New Relic for backend monitoring.
-@Surender Singh is doing everything...
+@Surender Singh is doing everything for cdc team...
 
 =====================================================================
 
@@ -290,6 +290,11 @@ https://github.com/vercel/next.js/tree/canary/examples/with-sentry              
 https://sentry.io/for/nextjs/       !!!!
 https://github.com/vercel/next.js/issues/1852       <<< got a good entry from 'Vadorequest commented on 19 Dec 2020'
 
+Questions:
+- Is it able to just log information? does it only work if i log error?
+        export function getServerSideProps() {
+          throw new Error('SSR Test 1')
+        }
 
 -------
 npm install --save @sentry/nextjs
@@ -348,18 +353,129 @@ function installErrorHandler(app) {
 }
 
 
+=====================================================================
+
+Application Insight info:
+------------------------------
+https://azure.microsoft.com/en-us/search/?q=application+insight%2C+javascript&docsids=
+https://docs.microsoft.com/en-us/azure/azure-monitor/app/javascript-react-plugin
+https://docs.microsoft.com/en-us/azure/azure-monitor/app/nodejs
+https://github.com/Azure-Samples/application-insights-react-demo
+https://github.com/Azure-Samples/applicationinsights-mern-todo
+https://docs.microsoft.com/en-us/azure/azure-monitor/app/api-custom-events-metrics
+https://www.meziantou.net/website-performance-why-and-how-to-measure.htm
 
 
 
+        import React from "react";
+        import { AppInsightsContext } from "@microsoft/applicationinsights-react-js";
+        import { reactPlugin } from "./AppInsights";
+
+        const App = () => {
+            return (
+                <AppInsightsContext.Provider value={reactPlugin}>
+                    /* your application here */
+                </AppInsightsContext.Provider>
+            );
+        };
+
+        import React from "react";
+        import { useAppInsightsContext } from "@microsoft/applicationinsights-react-js";
+
+        const MyComponent = () => {
+            const appInsights = useAppInsightsContext();
+
+            appInsights.trackMetric("Component 'MyComponent' is in use");
+
+            return (
+                <h1>My Component</h1>
+            );
+        }
+        export default MyComponent;
 
 
+useTrackMetric
+The useTrackMetric Hook replicates the functionality of the withAITracking higher-order component, without adding an additional component to the component structure.
+useTrackEvent       <<< this is for analytic...
+The useTrackEvent Hook is used to track any custom event that an application may need to track, such as a button click or other API call. I
+
+React Error Boundaries
+        import React from "react";
+        import { reactPlugin } from "./AppInsights";
+        import { AppInsightsErrorBoundary } from "@microsoft/applicationinsights-react-js";
+
+        const App = () => {
+            return (
+                <AppInsightsErrorBoundary onError={() => <h1>I believe something went wrong</h1>} appInsights={reactPlugin}>
+                    /* app here */
+                </AppInsightsErrorBoundary>
+            );
+        };
 
 
+compare:
+1. I don't like it need to specific appInsignts logging:
+        function trackException() {
+            appInsights.trackException({ error: new Error('some error'), severityLevel: SeverityLevel.Error });
+        }
+
+        function trackTrace() {
+            appInsights.trackTrace({ message: 'some trace', severityLevel: SeverityLevel.Information });
+        }
+
+        function trackEvent() {
+            appInsights.trackEvent({ name: 'some event' });
+        }
+
+where as sentry just do normal error logging:
+        const Test3 = () => {
+          useEffect(() => {
+            throw new Error('Client Test 3')
+          }, [])
+
+          return <h1>Client Test 3</h1>
+        }
+
+        export default Test3
 
 
+------------------------------
 
 
+- More for end to end monitoring
+- A bit of everything, frontend, backend, google analystic.
+	request rater
+	dependency reate
+	exceptions
+	page views
+	load performance
+	http(s) calls
+	user and serssion counts
+	performance coutners
+	host diagnostics
+	diagnostic trace logs
+	custom event
+- Our backend may not use application insight (col is using app dynamic and cdc is using new ralic)
+- Not easy to get the performance matrix like first paint, first contentful paint, etc, may need to use the buildin Kuston Query Language (kql) todo the time subtraction to calculate times
+- Need to use specific appInsignts function for exceptions:
+        function trackException() {
+        appInsights.trackException({ error: new Error('some error'), severityLevel: SeverityLevel.Error });
+        }
 
+        function trackTrace() {
+        appInsights.trackTrace({ message: 'some trace', severityLevel: SeverityLevel.Information });
+        }
 
+        function trackEvent() {
+        appInsights.trackEvent({ name: 'some event' });
+        }
+
+- If there is api error, backend can detect it (most of the time that is where the problem is, it's hardly only happens to one user so you don't need tracking from frontend to backend)
+  If there is pure monitoring client side run time error, or checking matrix (first contentful paint), client side focus monitoring tools seems to be better at this.
+  All the things that application insight currently doing (e.g. sourcemap and exception log capturing when run time happens) is able to be done in other tools as well.
+  (How to use Azure Monitor to observe and diagnose a JavaScript error https://www.youtube.com/watch?v=RE0-gRSAU1o)
+  e.g if a product is not adding into the shopping cart when i clicked app button, it's related is javascript synatax or logic problem, such data is not failed api call and will not log into backend. to capture the run time except, most of the tools is the same.
+  however, a frontend focus tool tells you more information, e.g. video or info about series pages | element user clicked to get to the error.
+  e.g. whether the image is too big to get delay the first contentful build, (but not crashing the app). (Application insight will give a time slot from query calculation, But its in the dashboard in sentry and we can directly compare with the standard given by google.
 
 
