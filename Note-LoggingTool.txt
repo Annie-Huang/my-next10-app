@@ -249,7 +249,7 @@ Max Paik: said they use AEM for user journey and azure application insight for l
 Steven Corral: Patrik's boss...
 
 Jordon scott, referrenced by Tarik Wahid (insight team)
-- Chandramohan Kkrishnamoorthi is the dev support team in col team
+- Chandramohan Kkrishnamoorthi is the dev support team in col team          <<< Easy to talk with
 - Saurabh Gupta is the dev support team in col team
 
 
@@ -257,9 +257,9 @@ Ashish Kaul, manager in charge of col team.
 Rahul Semwal is the dev in col team
 - col is using angular1, also got jsp page. appdynamic, splunk for backend monitoring.
 
-Matthew Kingston or Divya Sri Thodangi, frontend dev of the cdc team.
+Matthew Kingston or Divya Sri Thodangi, frontend dev of the cdc team.       <<< Easy to talk with
 - cdc is using react, New Relic for backend monitoring.
-@Surender Singh is doing everything for cdc team...
+@Surender Singh is doing everything for cdc team...                         <<< Easy to talk with
 
 =====================================================================
 
@@ -456,18 +456,19 @@ where as sentry just do normal error logging:
 	diagnostic trace logs
 	custom event
 - Our backend may not use application insight (col is using app dynamic and cdc is using new ralic)
-- Not easy to get the performance matrix like first paint, first contentful paint, etc, may need to use the buildin Kuston Query Language (kql) todo the time subtraction to calculate times
+- Not easy to get the performance matrix like first paint, first contentful paint, etc, may need to use the build-in Kuston Query Language (kql) todo the time subtraction to calculate times
 - Need to use specific appInsignts function for exceptions:
         function trackException() {
-        appInsights.trackException({ error: new Error('some error'), severityLevel: SeverityLevel.Error });
+            appInsights.trackException({ error: new Error('some error'), severityLevel: SeverityLevel.Error });
+            throw new excpetion('new exception')
         }
 
         function trackTrace() {
-        appInsights.trackTrace({ message: 'some trace', severityLevel: SeverityLevel.Information });
+            appInsights.trackTrace({ message: 'some trace', severityLevel: SeverityLevel.Information });
         }
 
         function trackEvent() {
-        appInsights.trackEvent({ name: 'some event' });
+            appInsights.trackEvent({ name: 'some event' });
         }
 
 - If there is api error, backend can detect it (most of the time that is where the problem is, it's hardly only happens to one user so you don't need tracking from frontend to backend)

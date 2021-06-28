@@ -1,0 +1,133 @@
+https://www.freecodecamp.org/news/the-next-js-handbook/
+https://www.freecodecamp.org/news/the-next-js-handbook/#analyzing-the-app-bundles
+https://www.freecodecamp.org/news/the-next-js-handbook/#lazy-loading-modules
+https://www.freecodecamp.org/news/the-next-js-handbook/#feed-data-to-the-components-using-getinitialprops
+
+
+https://onoufriosm.medium.com/react-best-practices-react-at-scale-part-1-74234290ef19
+https://onoufriosm.medium.com/react-best-practices-react-at-scale-part-2-11b69b96f5e
+https://hackernoon.com/react-project-structure-best-practices-kh20323x
+
+Analysis Bundle
+Lazy loading modules
+Use the <Image> from nextjs
+=================================================================
+
+Analysis Bundle:
+----------------------
+https://www.freecodecamp.org/news/the-next-js-handbook/#analyzing-the-app-bundles
+
+"analyze": "cross-env ANALYZE=true next build",
+"analyze:server": "cross-env BUNDLE_ANALYZE=server next build",
+"analyze:browser": "cross-env BUNDLE_ANALYZE=browser next build"
+
+npm install --dev cross-env @next/bundle-analyzer
+
+Create a next.config.js file in the project root, with this content:
+        const withBundleAnalyzer = require('@next/bundle-analyzer')({
+          enabled: process.env.ANALYZE === 'true'
+        })
+
+        module.exports = withBundleAnalyzer({})
+
+Now run the command
+
+        npm run analyze
+
+
+=================================================================
+
+
+Lazy loading modules
+--------------------------------
+https://www.freecodecamp.org/news/the-next-js-handbook/#lazy-loading-modules
+What we can do instead is separating all the Moment code in a separate bundle.
+How? Instead of importing Moment at the component level, we perform an async import inside getInitialProps, and we calculate the value to send to the component.
+
+don't use:
+        import moment from 'moment'
+
+        ...
+
+        const Post = props => {
+          return (
+            <div>
+              <h1>{props.post.title}</h1>
+              <p>Published on {moment().format('dddd D MMMM YYYY')}</p>
+              <p>{props.post.content}</p>
+            </div>
+          )
+        }
+
+use:
+        import posts from '../../posts.json'
+
+        const Post = props => {
+          return (
+            <div>
+              <h1>{props.post.title}</h1>
+              <p>Published on {props.date}</p>
+              <p>{props.post.content}</p>
+            </div>
+          )
+        }
+
+        Post.getInitialProps = async ({ query }) => {                       <<<<<< Never seen this method before...
+          const moment = (await import('moment')).default()
+          return {
+            date: moment.format('dddd D MMMM YYYY'),
+            post: posts[query.id]
+          }
+        }
+
+        export default Post
+
+
+=================================================================
+
+Use the <Image> from nextjs
+---------------------------------
+
+        import Image from 'next/image'
+
+        function Home() {
+          return (
+            <>
+              <h1>My Homepage</h1>
+              <Image
+                src="/me.png"
+                alt="Picture of the author"
+                width={500}
+                height={500}
+              />
+              <p>Welcome to my homepage!</p>
+            </>
+          )
+        }
+
+        export default Home
+
+=================================================================
+
+React form:
+------------------
+https://nextjs.org/blog/forms
+https://www.w3.org/WAI/tutorials/forms/
+https://reactjs.org/docs/uncontrolled-components.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
