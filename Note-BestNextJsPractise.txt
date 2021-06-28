@@ -115,8 +115,24 @@ https://nextjs.org/blog/forms
 https://www.w3.org/WAI/tutorials/forms/
 https://reactjs.org/docs/uncontrolled-components.html
 
+=================================================================
+
+test files location:
+-----------------------------
+https://frontend-digest.com/setting-up-testing-library-with-nextjs-a9702cbde32d
+https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe       <<< 2018 setup.
+https://www.works-hub.com/learn/how-to-test-your-next-dot-js-pages-and-components-with-jest-6c900
 
 
+Add scripts:
+"scripts": {
+  "test": "jest",
+  "test:watch": "jest --watch",
+  "test:coverage": "jest --coverage"
+},
+
+
+src/tests/index.test.js         to test src/pages/index.js
 
 
 
