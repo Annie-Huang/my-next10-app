@@ -122,7 +122,7 @@ test files location:
 https://frontend-digest.com/setting-up-testing-library-with-nextjs-a9702cbde32d
 https://medium.com/@miiny/unit-test-next-js-with-jest-and-enzyme-5b305a8e29fe       <<< 2018 setup.
 https://www.works-hub.com/learn/how-to-test-your-next-dot-js-pages-and-components-with-jest-6c900
-
+https://github.com/vercel/next.js/tree/canary/examples/with-jest        <<< looks like it's located outside of the page folder.
 
 Add scripts:
 "scripts": {

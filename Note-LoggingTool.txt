@@ -235,31 +235,6 @@ Cumulative Layout Shift - (here is a doc explaining what it is Cumulative Layout
 First Input Delay - (here is a doc explaining what it is https://web.dev/fid/).
 "First Input Delay (FID) is an important, user-centric metric for measuring load responsiveness because it quantifies the experience users feel when trying to interact with unresponsive pages—a low FID helps ensure that the page is usable."
 
-============================================
-[4:25 pm] Keith Maine
-    Annie, you need to be more specific. We do use - appDynamics  within Coles for some websites, speak to Markus Blaser to get a full run down on whether this provides what you require since you mention client side - which I'm sure AppD could do. There are Adobe tools that can provide device information etc which are in use - see Jacob Toy. Again, more info required.
-
-Christinique Chapman: BA
-
-Max Paik: BFF team
-- AEM and Use application insights
-  https://experienceleague.adobe.com/docs/experience-manager-cloud-manager/using/overview/customer-journey.html
-Max Paik: said they use AEM for user journey and azure application insight for logging
-
-Steven Corral: Patrik's boss...
-
-Jordon scott, referrenced by Tarik Wahid (insight team)
-- Chandramohan Kkrishnamoorthi is the dev support team in col team          <<< Easy to talk with
-- Saurabh Gupta is the dev support team in col team
-
-
-Ashish Kaul, manager in charge of col team.
-Rahul Semwal is the dev in col team
-- col is using angular1, also got jsp page. appdynamic, splunk for backend monitoring.
-
-Matthew Kingston or Divya Sri Thodangi, frontend dev of the cdc team.       <<< Easy to talk with
-- cdc is using react, New Relic for backend monitoring.
-@Surender Singh is doing everything for cdc team...                         <<< Easy to talk with
 
 =====================================================================
 
@@ -478,5 +453,92 @@ where as sentry just do normal error logging:
   e.g if a product is not adding into the shopping cart when i clicked app button, it's related is javascript synatax or logic problem, such data is not failed api call and will not log into backend. to capture the run time except, most of the tools is the same.
   however, a frontend focus tool tells you more information, e.g. video or info about series pages | element user clicked to get to the error.
   e.g. whether the image is too big to get delay the first contentful build, (but not crashing the app). (Application insight will give a time slot from query calculation, But its in the dashboard in sentry and we can directly compare with the standard given by google.
+
+
+
+============================================
+[4:25 pm] Keith Maine
+    Annie, you need to be more specific. We do use - appDynamics  within Coles for some websites, speak to Markus Blaser to get a full run down on whether this provides what you require since you mention client side - which I'm sure AppD could do. There are Adobe tools that can provide device information etc which are in use - see Jacob Toy. Again, more info required.
+
+Christinique Chapman: BA
+
+Max Paik: BFF team
+- AEM and Use application insights
+  https://experienceleague.adobe.com/docs/experience-manager-cloud-manager/using/overview/customer-journey.html
+Max Paik: said they use AEM for user journey and azure application insight for logging
+
+Steven Corral: Patrik's boss...
+
+
+##########
+## COL  ##
+##########
+Jordon scott, referrenced by Tarik Wahid (insight team)
+- Chandramohan Kkrishnamoorthi is the dev support team in col team          <<< Easy to talk with
+- Saurabh Gupta is the dev support team in col team
+
+Ashish Kaul, manager in charge of col DEV team.
+Rahul Semwal is the frontend dev in col team                                         <<< Easy to talk with
+Sebastian Castro and Yagnesh Rajaraman  are the architects
+satinder.kumar, vinod.valluri are the testing managers              >>>> Waiting for reply....
+Neeraj Rana is the automation tester
+- col is using angular1, also got jsp page. appdynamic, splunk for backend monitoring.
+
+
+##########
+## CDC  ##
+##########
+Matthew Kingston or Divya Sri Thodangi, frontend dev of the cdc team.       <<< Easy to talk with
+- cdc is using react, New Relic for backend monitoring.
+@Surender Singh is doing everything for cdc team...                         <<< Easy to talk with
+Pavan Andiboyina is the QA from cdc team                            >>>> Waiting for reply....
+
+Pavan's proxy setup:
+npm config set proxy http://username:password@proxy.cmltd.net.au:8080
+npm config set https-proxy http://username:password@proxy.cmltd.net.au:8080
+SET HTTP_PROXY=proxy.cmltd.net.au:8080
+SET HTTP_PROXY_PASSWORD=password
+SET HTTP_PROXY_USER=username
+SET HTTPS_PROXY=proxy.cmltd.net.au:8080
+SET HTTPS_PROXY_PASSWORD=password
+SET HTTPS_PROXY_USER=username
+================================================================
+
+Question 1:
+Question @Annie Huang does Sentry provide a view of page performance over a given time period (e.g. week, month
+
+Question 2:
+can we find out where is sentry's server? location of storing data, will there be any sensitive data stored? like user IP
+
+Question 3:
+nextjs does have a node server
+where we can install app dynamics agent
+the question would be can nodejs server install appdynamic agent?
+Answers:
+Yes, it can
+- https://docs.appdynamics.com/21.5/en/application-monitoring/install-app-server-agents/node-js-agent
+
+Question 4:
+so follow up action, i see you 've included legal, architects suggests more secuirty concern
+
+
+================================================================
+
+Question to ask for Sentry:
+- Who is the biggest ecommerce | corporate clients that use the NextJS framework?
+- Can we see performance on a page (first contentful paint etc web vital) against two given time period?
+- What is the dropdown list for the timeframe for the performances (last 14 days one)
+-
+
+
+
+
+
+
+
+
+
+
+
 
 
