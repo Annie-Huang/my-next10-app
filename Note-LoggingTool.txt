@@ -301,6 +301,19 @@ Sentry.captureEvent({
   ],
 });
 
+
+General Data Protection Regulation (GDPR):
+If you anonymize the information you're not tracking any of the personal stuff that you know tracks back user.
+We have data scrubbing to help you with this on both the client side and server side then we should be clear of gdpr
+
+Impact of the bundle size of century on next.js page bundles.
+It should be negligible but the experimental serverless trace which increases the bundle size but outside of that one,
+we typically want to be minimally invasive and on the air side we're only attaching the air handlers and making sure
+those are sent up as events and then on the transaction side we're just making sure transactions that you care about are
+sent up and you can setup sampling and you can figure out which transactions are important. But in that sense we're not
+instrumenting everything we just want to instrument what might be useful to the nextjs or javascript developer in regards to debugging an issue
+
+
 =====================================================================
 
 How to use rollbar:
@@ -473,6 +486,8 @@ Steven Corral: Patrik's boss...
 ##########
 ## COL  ##
 ##########
+- col is using angular1, also got jsp page. appdynamic, splunk for backend monitoring.
+
 Jordon scott, referrenced by Tarik Wahid (insight team)
 - Chandramohan Kkrishnamoorthi is the dev support team in col team          <<< Easy to talk with
 - Saurabh Gupta is the dev support team in col team
@@ -481,17 +496,25 @@ Ashish Kaul, manager in charge of col DEV team.
 Rahul Semwal is the frontend dev in col team                                         <<< Easy to talk with
 Sebastian Castro and Yagnesh Rajaraman  are the architects
 satinder.kumar, vinod.valluri are the testing managers              >>>> Waiting for reply....
-Neeraj Rana is the automation tester
-- col is using angular1, also got jsp page. appdynamic, splunk for backend monitoring.
+Neeraj Rana is the automation tester (moved to 1Site)
+    - Selenium TestNG (Java)
+    - Not part of CI:CD. 1) Using the Task Scheduler Job through .bat file  2) Manually using TestNG file
+    - Our WCS sanity SUITE having 54 automation scripts, and Complete regression Suite having 241 Scripts (Covering 249 Test Cases). In API - WCS Scripts - 91 & COL Services - 42
+    - Automation suite only at SIT environment.
+    - GUI automation implemented code for Firefox & Chrome browser
+
 
 
 ##########
 ## CDC  ##
 ##########
-Matthew Kingston or Divya Sri Thodangi, frontend dev of the cdc team.       <<< Easy to talk with
 - cdc is using react, New Relic for backend monitoring.
+
+Matthew Kingston or Divya Sri Thodangi, frontend dev of the cdc team.       <<< Easy to talk with
 @Surender Singh is doing everything for cdc team...                         <<< Easy to talk with
 Pavan Andiboyina is the QA from cdc team                            >>>> Waiting for reply....
+    - Not built into CI:CD. But will make sure it run successfully before every release.
+    - Selenium, written in javascript.
 
 Pavan's proxy setup:
 npm config set proxy http://username:password@proxy.cmltd.net.au:8080
@@ -527,7 +550,6 @@ so follow up action, i see you 've included legal, architects suggests more secu
 Question to ask for Sentry:
 - Who is the biggest ecommerce | corporate clients that use the NextJS framework?
 - Can we see performance on a page (first contentful paint etc web vital) against two given time period?
-- What is the dropdown list for the timeframe for the performances (last 14 days one)
 -
 
 

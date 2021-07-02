@@ -8,9 +8,16 @@ https://onoufriosm.medium.com/react-best-practices-react-at-scale-part-1-7423429
 https://onoufriosm.medium.com/react-best-practices-react-at-scale-part-2-11b69b96f5e
 https://hackernoon.com/react-project-structure-best-practices-kh20323x
 
+https://www.netlify.com/blog/2020/12/02/next.js-should-i-use-ssr-or-ssg/
+https://snipcart.com/blog/react-nextjs-single-page-application-seo
+
+Search keyword: "next js best practices"
+
 Analysis Bundle
 Lazy loading modules
 Use the <Image> from nextjs
+Analyze and monitor with Google Webmaster Tools and web.dev
+Adding a sitemap
 =================================================================
 
 Analysis Bundle:
@@ -133,6 +140,26 @@ Add scripts:
 
 
 src/tests/index.test.js         to test src/pages/index.js
+
+
+=================================================================
+https://snipcart.com/blog/react-nextjs-single-page-application-seo
+
+Analyze and monitor with Google Webmaster Tools and web.dev
+Luckily Google provides some free tools to handle this, including the Search Console and web.dev which will also test performance and accessibility. Performance and accessibility also happen to help SEO.
+- https://search.google.com/search-console/about
+- https://web.dev/
+
+
+Adding a sitemap
+While you can’t do this out of the box with Next.js, there are plugins to help, such as the Next.js Sitemap Generator or a custom approach like the one I added to my Next.js WordPress Starter.
+- https://github.com/IlusionDev/nextjs-sitemap-generator
+
+Optimizing for social media with Open Graph
+We lightly touched on Open Graph in the tutorial, but there’s a wide variety of metadata tags and use cases that make Open Graph an important part of your SEO work.
+
+
+
 
 
 
