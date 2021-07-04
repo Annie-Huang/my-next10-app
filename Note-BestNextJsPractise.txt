@@ -10,14 +10,21 @@ https://hackernoon.com/react-project-structure-best-practices-kh20323x
 
 https://www.netlify.com/blog/2020/12/02/next.js-should-i-use-ssr-or-ssg/
 https://snipcart.com/blog/react-nextjs-single-page-application-seo
+https://medium.com/weekly-webtips/next-js-on-the-server-side-notes-to-self-e2170dc331ff
+https://web.dev/introducing-aurora/
+https://nextjs.org/blog
+https://web.dev/conformance/
 
 Search keyword: "next js best practices"
+
 
 Analysis Bundle
 Lazy loading modules
 Use the <Image> from nextjs
 Analyze and monitor with Google Webmaster Tools and web.dev
 Adding a sitemap
+Web Vital
+Conformance for Frameworks
 =================================================================
 
 Analysis Bundle:
@@ -159,18 +166,73 @@ Optimizing for social media with Open Graph
 We lightly touched on Open Graph in the tutorial, but there’s a wide variety of metadata tags and use cases that make Open Graph an important part of your SEO work.
 
 
+=================================================================
+
+Web Vitals
+--------------------
+How Core Web Vitals Will Impact Google Rankings in 2021 (https://www.youtube.com/watch?v=9SVe7TigqVg)
+Next.js Image Component and Image Optimization (https://www.youtube.com/watch?v=h0gj4gOjz44)
+
+Web vitals is the metric to track perceived loading speed, responsiveness, and visual stability of your website. All three essential for your website overall health.
+The performance of your website can vary dramatically from user to user, or device to device, and network to network.
+Before the pendamic begin, we bought 16% of our things online, now we buy nearly 34%. Covid pushed 10 years of eCommerce growth into three months.
+
+Amazon(2009), Walmart (2012)
+100ms less latency -> 1% more revenue
+
+Largest Contentful Paint
+Usually image or video. Good: less than 2.5s. Poor more than 4s
+
+First Input Delay
+The time between when a user actually click a link or button, and when the browser begins processing those event handlers.
+Bad example: you click on an element, and nothing happens when you click and you get frustrated and you click a bunch more times.
+Good: less than 100ms. Poor more than 300ms.
+
+Cumulative Layout Shift
+Good: less than 0.1. Poor: more than 0.25
+
+Solution:
+Pre-rendering Content (Need to learn about automatic static optimization)
+Optimize Images (50% of the download is coming from image)
+    - always give a width and height of the image (prevent layout shift)
+    - lazy load (will only fetch image when you scroll down and the image appear in the view port). Add priority keywords to those needs to load first.
+    - use modern image format (WebP, AVIF, same quality, lower file size)
+    - use srcset (a standard html image spec, allows you to serve up different variations depends the device and viewport your user is viewing
+    - blue-up placeholders
+    - use layout property: fill, fixed, intrinsic. combine that with different type of fit for how you want your image to be cropped
+    - .webp file is around 30% smaller than .jpeg file
+Optimize Fonts
+    - use a vaiable | preload font file | self-host instead of google fonts | use font-display: optional (prevent layout shift)
+    - put a link tag in the head of our document to preload the font file
+            <link
+             rel="preload"
+             href="/fonts/inter-var-latin.woff2"
+             as="font"
+             type="font/woff2"
+             crossOrigin="anonymous"
+            />
+    - somewhere in our css, we define a font face.
+            @font-face {
+             font-family: 'Inter';
+             font-style: normal;
+             font-weight: 100 900; // Range of weights supported
+             font-display: optional;                                    <<< We don't have cls. If you cannot resolve the request to fetch this font then show the fallback font
+             src: url(/fonts/inter-var-latin.woff2) format('woff2');
+             unicode-range: U+0000-00FF, U+0131, … …;
+            }
+
+Big company use next.js
+HashiCorp | The washington post | airbnb (is the payment part is also in next.js?) | tripadvisor.
 
 
+=================================================================
 
+Conformance for Frameworks
+------------------------------------------
+https://web.dev/conformance/
 
-
-
-
-
-
-
-
-
-
-
-
+2. Actionable rules
+Defaults that require no developer input such as inlining critical CSS.
+Require developer opt-in. For example, using a framework-provided image component to size and scale images.
+Require developer opt-in and customization. For example, tagging important images to be loaded early.              <<<< !!!!
+Not a specific feature but things that still require developer decision. For example, avoiding fonts or synchronous scripts that delay early rendering.
