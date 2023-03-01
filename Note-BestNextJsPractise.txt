@@ -4,6 +4,7 @@ https://www.freecodecamp.org/news/the-next-js-handbook/#lazy-loading-modules
 https://www.freecodecamp.org/news/the-next-js-handbook/#feed-data-to-the-components-using-getinitialprops
 
 
+
 https://onoufriosm.medium.com/react-best-practices-react-at-scale-part-1-74234290ef19
 https://onoufriosm.medium.com/react-best-practices-react-at-scale-part-2-11b69b96f5e
 https://hackernoon.com/react-project-structure-best-practices-kh20323x
